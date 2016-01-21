@@ -11,13 +11,14 @@ a:hover {
 }
 
 .button-container {
-  width: 40%;
+  width: 35%;
+  top: 60%;
   margin-left: auto;
   margin-right: auto;
 
 }
 
-.row-bottom-margin {
+.row-spacing {
   margin-bottom: 20px;
 }
 
