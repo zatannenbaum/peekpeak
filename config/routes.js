@@ -38,6 +38,14 @@ module.exports.routes = {
 
   'get /playnow': {
     view: 'playnow'
+  },
+
+  'get /flashcards': {
+    view: 'flashcards'
+  },
+
+  'get /story': {
+    view: 'story'
   }
 
   /***************************************************************************
