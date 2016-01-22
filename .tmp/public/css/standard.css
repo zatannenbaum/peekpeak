@@ -167,7 +167,6 @@ body {
 /*
  * Cover
  */
-
 .cover {
   padding: 0 20px;
 }
@@ -200,6 +199,7 @@ body {
   .mastfoot {
     position: fixed;
     bottom: 0;
+
   }
   /* Start the vertical centering */
   .site-wrapper-inner {

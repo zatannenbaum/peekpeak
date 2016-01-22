@@ -33,15 +33,18 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'homepage',
+    locals: {
+      layout: 'layouts/HomepageLayout'
+    }
   },
 
   'get /playnow': {
     view: 'playnow'
   },
 
-  'get /flashcards': {
-    view: 'flashcards'
+  'get /dictionary': {
+    view: 'dictionary'
   },
 
   'get /story': {

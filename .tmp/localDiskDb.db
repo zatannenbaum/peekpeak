@@ -1,0 +1,74 @@
+{
+  "data": {
+    "definition": [],
+    "synonym": [],
+    "word": []
+  },
+  "schema": {
+    "definition": {
+      "word": {
+        "type": "integer",
+        "model": "word",
+        "foreignKey": true,
+        "alias": "word"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "synonym": {
+      "word": {
+        "type": "string"
+      },
+      "definition": {
+        "type": "integer",
+        "model": "definition",
+        "foreignKey": true,
+        "alias": "definition"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "word": {
+      "word": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "definition": {},
+    "synonym": {},
+    "word": {}
+  }
+}
