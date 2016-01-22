@@ -28,7 +28,6 @@ a:hover {
 .btn-play,
 .btn-play:hover,
 .btn-play:focus {
-  color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
   text-align: center;
   background-image: url("../buttons/PlayNow.png");
@@ -42,7 +41,6 @@ a:hover {
 .btn-dict,
 .btn-dict:hover,
 .btn-dict:focus {
-  color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
   text-align: center;
   background-color: #fff;
@@ -56,7 +54,6 @@ a:hover {
 .btn-story,
 .btn-story:hover,
 .btn-story:focus {
-  color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
   text-align: center;
   background-color: #fff;
@@ -70,7 +67,6 @@ a:hover {
 .btn-teacher,
 .btn-teacher:hover,
 .btn-teacher:focus {
-  color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
   text-align: center;
   background-color: #fff;

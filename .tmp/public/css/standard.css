@@ -10,62 +10,6 @@ a:hover {
   text-decoration: none;
 }
 
-.button-container {
-  width: 35%;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-.row-spacing {
-  margin-bottom: 20px;
-}
-
-/* Play Now! button */
-.btn-play,
-.btn-play:hover,
-.btn-play:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #fff;
-  width: 150px;
-}
-
-.btn-flash,
-.btn-flash:hover,
-.btn-flash:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #fff;
-  width: 150px;
-}
-
-.btn-story,
-.btn-story:hover,
-.btn-story:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #fff;
-  width: 150px;
-}
-
-.btn-teacher,
-.btn-teacher:hover,
-.btn-teacher:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #fff;
-  width: 150px;
-}
-
 
 /*
  * Base structure
@@ -116,8 +60,9 @@ body {
  * Header
  */
 .masthead {
-  background-color: #b22222;
-  background-color: rgba(178, 34, 34, 1); /* Change Navbar color*/
+  background-color: white;  /*Change Navbar color*/
+  background-image: url("../backgrounds/NavBar.png");
+  background-size: 100% 100%;
 }
 
 
@@ -126,15 +71,28 @@ body {
   margin-bottom: 10px;
 }
 
+.btn-pp,
+.btn-pp:hover,
+.btn-pp:focus,
+.btn-pp:active {
+  text-shadow: none;
+  background-image: url("../buttons/PeekPeak.png");
+  background-size: 100% 100%;
+  width: 200px;
+  height: 60px;
+
+}
+
 .masthead-nav > li {
   display: inline-block;
 }
 .masthead-nav > li + li {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 .masthead-nav > li > a {
   padding-right: 0;
   padding-left: 0;
+  top: 10px;
   font-size: 16px;
   font-weight: bold;
   color: #fff; /* IE8 proofing */
@@ -162,6 +120,56 @@ body {
     float: right;
   }
 }
+
+/* Play Now! button */
+.btn-play,
+.btn-play:hover,
+.btn-play:focus {
+  text-shadow: none; /* Prevent inheritence from `body` */
+  text-align: center;
+  background-image: url("../buttons/PlayNow.png");
+  background-size: 100% 100%;
+  background-color: transparent;
+  width: 100px;
+  height: 50px;
+}
+
+.btn-dict,
+.btn-dict:hover,
+.btn-dict:focus {
+  text-shadow: none; /* Prevent inheritence from `body` */
+  text-align: center;
+  background-color: transparent;
+  background-image: url("../buttons/Dictionary.png");
+  background-size: 100% 100%;
+  width: 100px;
+  height: 50px;
+}
+
+.btn-story,
+.btn-story:hover,
+.btn-story:focus {
+  text-shadow: none; /* Prevent inheritence from `body` */
+  text-align: center;
+  background-color: transparent;
+  background-image: url("../buttons/Story.png");
+  background-size: 100% 100%;
+  width: 100px;
+  height: 50px;
+}
+
+.btn-teacher,
+.btn-teacher:hover,
+.btn-teacher:focus {
+  text-shadow: none; /* Prevent inheritence from `body` */
+  text-align: center;
+  background-color: transparent;
+  background-image: url("../buttons/Teacher.png");
+  background-size: 100% 100%;
+  width: 100px;
+  height: 50px;
+}
+
 
 
 /*
