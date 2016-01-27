@@ -2,7 +2,38 @@
   "data": {
     "definition": [],
     "synonym": [],
-    "word": []
+    "word": [
+      {
+        "word": "bill",
+        "createdAt": "2016-01-27T04:01:20.842Z",
+        "updatedAt": "2016-01-27T04:01:20.842Z",
+        "id": 1
+      },
+      {
+        "word": "can",
+        "createdAt": "2016-01-27T04:01:46.598Z",
+        "updatedAt": "2016-01-27T04:01:46.598Z",
+        "id": 2
+      },
+      {
+        "word": "all",
+        "createdAt": "2016-01-27T04:02:11.768Z",
+        "updatedAt": "2016-01-27T04:02:11.768Z",
+        "id": 3
+      },
+      {
+        "word": "apple",
+        "createdAt": "2016-01-27T04:38:07.002Z",
+        "updatedAt": "2016-01-27T04:38:07.002Z",
+        "id": 4
+      },
+      {
+        "word": "zach",
+        "createdAt": "2016-01-27T04:39:47.424Z",
+        "updatedAt": "2016-01-27T04:39:47.424Z",
+        "id": 5
+      }
+    ]
   },
   "schema": {
     "definition": {
@@ -69,6 +100,8 @@
   "counters": {
     "definition": {},
     "synonym": {},
-    "word": {}
+    "word": {
+      "id": 5
+    }
   }
 }

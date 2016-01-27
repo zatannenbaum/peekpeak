@@ -1,0 +1,44 @@
+
+<div class="site-wrapper">
+
+  <div class="site-wrapper-inner">
+
+    <div class="cover-container">
+
+      <div class="masthead clearfix">
+        <div class="inner">
+          <div class="masthead-brand"><a href="/" class="btn btn-lg btn-pp"></a></div>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li><a href="/playnow" class="btn btn-lg btn-play"></a></li>
+              <li class="active"><a href="/dictionary" class="btn btn-lg btn-dict"></a></li>
+              <li><a href="/story" class="btn btn-lg btn-story"></a></li>
+              <li><a href="/teacher" class="btn btn-lg btn-teacher"></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="container" ng-controller="dictionaryCtrl as word">
+        <div id="word-list" class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="list-group" ng-repeat="singleWord in words">
+              <label>
+                {{ singleWord.word }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Created by SpeakSoft 2016</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -6,6 +6,15 @@
  */
 
 module.exports = {
-	
+	getWords: function(req, res) {
+		DictionaryService.getWords(function(words) {
+			res.json(words);
+		});
+	},
+	selectWord: function(req, res) {
+		var wordVal = (req.body.value) ? req.body.value : undefined
+		DictionaryService.selectWord(wordVal, function(success) {
+			res.json(success);
+		});
+	}
 };
-

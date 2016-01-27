@@ -1,0 +1,31 @@
+{
+  "name": "PeekPeak",
+  "homepage": "https://github.com/zatannenbaum/peekpeak",
+  "authors": [
+    "Zachary Tannenbaum <zachary.tannenbaum@gmail.com>"
+  ],
+  "description": "Learning application",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.11.0",
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-moment": "~0.7.1",
+    "angular-mocks": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "html5-boilerplate": "~5.2.0",
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.6"
+  }
+}

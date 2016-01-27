@@ -44,7 +44,10 @@ module.exports.routes = {
   },
 
   'get /dictionary': {
-    view: 'dictionary'
+    view: 'dictionary',
+    locals: {
+      layout: 'layouts/DictionaryLayout'
+    }
   },
 
   'get /story': {

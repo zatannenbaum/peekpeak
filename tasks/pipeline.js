@@ -16,6 +16,7 @@ var tmpPath = '.tmp/public/';
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
+  'bower_components/bootswatch/dist/css/bootstrap.css',
   'styles/**/*.css'
 ];
 
@@ -28,11 +29,18 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
+  'js/dependencies/sails.io.js',
+  '/bower_components/jquery/dist/jquery.js',
+  '/bower_components/angular/angular.js',
+  '/bower_components/angular-route/angular-route.js',
+  '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+  '/bower_components/bootstrap/dist/js/boostrap.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js',
+
 
   // Use the "exclude" operator to ignore files
   // '!js/ignore/these/files/*.js'
@@ -57,12 +65,18 @@ var templateFilesToInject = [
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
 // they reside in the first place)
-module.exports.cssFilesToInject = cssFilesToInject.map(transformPath);
-module.exports.jsFilesToInject = jsFilesToInject.map(transformPath);
-module.exports.templateFilesToInject = templateFilesToInject.map(transformPath);
+module.exports.cssFilesToInject = cssFilesToInject.map(function(path) {
+  return '.tmp/public/' + path;
+});
+module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
+  return '.tmp/public/' + path;
+});
+module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
+  return 'assets/' + path;
+});
 
 // Transform paths relative to the "assets" folder to be relative to the public
 // folder, preserving "exclude" operators.
-function transformPath(path) {
-  return (path.substring(0,1) == '!') ? ('!' + tmpPath + path.substring(1)) : (tmpPath + path);
-}
+// function transformPath(path) {
+//   return (path.substring(0,1) == '!') ? ('!' + tmpPath + path.substring(1)) : (tmpPath + path);
+// }

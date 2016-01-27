@@ -19,12 +19,14 @@
         </div>
       </div>
 
-      <div class="inner cover">
-        <h1 class="cover-heading">Peek Peak</h1>
-        <p class="lead">This is the Dictionary page</p>
-        <!-- <p class="lead">
-          <a href="#" class="btn btn-lg btn-default">Learn more</a>
-        </p> -->
+      <div class="container" ng-controller="dictionaryCtrl as dictionary">
+        <div id="word-list" class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="list-group" ng-repeat="singleWord in words">
+                {{ singleWord.word }}
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="mastfoot">
