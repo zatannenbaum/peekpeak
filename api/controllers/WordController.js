@@ -12,7 +12,7 @@ module.exports = {
 		});
 	},
 	selectWord: function(req, res) {
-		var wordVal = (req.body.value) ? req.body.value : undefined
+		var wordVal = (req.body.word) ? req.body.word : undefined
 		DictionaryService.selectWord(wordVal, function(success) {
 			res.json(success);
 		});
