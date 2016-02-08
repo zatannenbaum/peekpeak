@@ -10,5 +10,11 @@ module.exports = {
       if(err) throw err;
       next(word);
     });
+  },
+  getDefinitions: function(next) {
+    Definition.find().exec(function(err, definitions) {
+      if(err) throw err;
+      next(definitions);
+    });
   }
 };

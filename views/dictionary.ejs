@@ -1,5 +1,5 @@
 
-<div class="site-wrapper">
+<div class="site-wrapper" ng-controller="dictionaryCtrl as dictionary">
 
   <div class="site-wrapper-inner">
 
@@ -19,19 +19,28 @@
         </div>
       </div>
 
-      <div class="container" ng-controller="dictionaryCtrl as dictionary">
-        <div id="word-list" class="row">
-          <div class="col-sm-4 col-sm-offset-4">
-            <div class="list-group" ng-repeat="singleWord in words">
-                {{ singleWord.word }}
-            </div>
-          </div>
+      <h2 class="currentword-header"> {{ currentWord.word }} </h2>
+
+      <nav class="words">
+        <ul class="list-group word-list">
+          <button type="button" class="list-group-item word" ng-repeat="singleWord in words | orderBy:'word'" ng-click="selectWord(singleWord)">
+              {{ singleWord.word }}
+          </button>
+        </ul>
+      </nav>
+
+      <div class="definitions">
+        <div class="definition-inside">
+          <span class="definition md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
+            {{ singleDef.definition }}
+          </span>
         </div>
       </div>
 
+
       <div class="mastfoot">
         <div class="inner">
-          <p>Created by SpeakSoft 2016</p>
+          <div class="logo"></div>
         </div>
       </div>
 

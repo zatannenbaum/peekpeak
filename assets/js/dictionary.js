@@ -14,6 +14,8 @@ dictionary.config(['$routeProvider',
 dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryService', function($scope, $rootScope, DictionaryService) {
   $scope.words = [];
   $scope.currentWord = '';
+  $scope.defs = [];
+
 
   DictionaryService.getWords().then(function(response) {
     $scope.words = response;
@@ -22,7 +24,14 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
 
   $scope.selectWord = function(word) {
     DictionaryService.selectWord(word).then(function(response) {
-      $scope.currentWord = $scope.words($scope.words.indexOf(word));
+      $scope.currentWord = $scope.words[$scope.words.indexOf(word)];
     });
   }
+
+  DictionaryService.getDefinitions().then(function(response) {
+    $scope.defs = response;
+  });
+
+
+
 }]);

@@ -11,7 +11,16 @@ dictionary.service('DictionaryService', function($http, $q) {
     },
     'selectWord': function(word) {
       var defer = $q.defer();
-      $http.get('word/selectWord', word).success(function(resp) {
+      $http.post('word/selectWord', word).success(function(resp) {
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'getDefinitions': function() {
+      var defer = $q.defer();
+      $http.post('definition/getDefinitions').success(function(resp) {
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
