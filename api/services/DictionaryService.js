@@ -16,5 +16,11 @@ module.exports = {
       if(err) throw err;
       next(definitions);
     });
+  },
+  getSynonyms: function(next) {
+    Synonym.find().exec(function(err, synonyms) {
+      if(err) throw err;
+      next(synonyms);
+    });
   }
 };

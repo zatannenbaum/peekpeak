@@ -29,11 +29,13 @@
         </ul>
       </nav>
 
-      <div class="definitions">
-        <div class="definition-inside">
-          <span class="definition md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
-            {{ singleDef.definition }}
-          </span>
+      <div class="info">
+        <div class="info-inside row">
+          <div class="info-container md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
+            <p class="definition">definition: {{ singleDef.definition }}</p>
+            <p class="synonym">synonyms: </p>
+            <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
+          </div>
         </div>
       </div>
 

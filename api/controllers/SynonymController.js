@@ -6,6 +6,10 @@
  */
 
 module.exports = {
-	
-};
+	getSynonyms: function(req, res) {
+		DictionaryService.getSynonyms(function(synonyms) {
+			res.json(synonyms);
+		});
+	}
 
+};

@@ -20,7 +20,16 @@ dictionary.service('DictionaryService', function($http, $q) {
     },
     'getDefinitions': function() {
       var defer = $q.defer();
-      $http.post('definition/getDefinitions').success(function(resp) {
+      $http.get('definition/getDefinitions').success(function(resp) {
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'getSynonyms': function() {
+      var defer = $q.defer();
+      $http.get('synonym/getSynonyms').success(function(resp) {
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);

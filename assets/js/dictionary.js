@@ -15,6 +15,7 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
   $scope.words = [];
   $scope.currentWord = '';
   $scope.defs = [];
+  $scope.syns = [];
 
 
   DictionaryService.getWords().then(function(response) {
@@ -30,6 +31,10 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
 
   DictionaryService.getDefinitions().then(function(response) {
     $scope.defs = response;
+  });
+
+  DictionaryService.getSynonyms().then(function(response) {
+    $scope.syns = response;
   });
 
 
