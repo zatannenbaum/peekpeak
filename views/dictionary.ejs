@@ -1,43 +1,41 @@
 
 <div class="site-wrapper" ng-controller="dictionaryCtrl as dictionary">
 
-  <div class="site-wrapper-inner">
+  <nav class="navbar masthead">
+    <a href="/" class="navbar-brand btn btn-lg btn-pp"></a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/playnow" class="btn btn-default navbar-btn btn-play"></a></li>
+        <li class="active"><a href="/dictionary" class="btn btn-default navbar-btn btn-dict"></a></li>
+        <li><a href="/story" class="btn btn-default navbar-btn btn-story"></a></li>
+        <li><a href="/teacher" class="btn btn-default navbar-btn btn-teacher"></a></li>
+      </ul>
+  </nav>
 
-    <div class="cover-container">
 
-      <div class="masthead clearfix">
-        <div class="inner">
-          <div class="masthead-brand"><a href="/" class="btn btn-lg btn-pp"></a></div>
-          <nav>
-            <ul class="nav masthead-nav">
-              <li><a href="/playnow" class="btn btn-lg btn-play"></a></li>
-              <li class="active"><a href="/dictionary" class="btn btn-lg btn-dict"></a></li>
-              <li><a href="/story" class="btn btn-lg btn-story"></a></li>
-              <li><a href="/teacher" class="btn btn-lg btn-teacher"></a></li>
-            </ul>
-          </nav>
+  <div class="section">
+    <nav class="words">
+      <ul class="list-group word-list">
+        <button type="button" class="list-group-item word" ng-repeat="singleWord in words | orderBy:'word'" ng-click="selectWord(singleWord)">
+            {{ singleWord.word }}
+        </button>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="current">
+
+    <div class="currentword-header"><h2> {{ currentWord.word }} </h2></div>
+
+    <div class="info">
+      <div class="info-inside">
+        <div class="info-container md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
+          <p class="definition">definition: {{ singleDef.definition }}</p>
+          <p class="synonym">synonyms: </p>
+          <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
         </div>
       </div>
-
-      <h2 class="currentword-header"> {{ currentWord.word }} </h2>
-
-      <nav class="words">
-        <ul class="list-group word-list">
-          <button type="button" class="list-group-item word" ng-repeat="singleWord in words | orderBy:'word'" ng-click="selectWord(singleWord)">
-              {{ singleWord.word }}
-          </button>
-        </ul>
-      </nav>
-
-      <div class="info">
-        <div class="info-inside row">
-          <div class="info-container md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
-            <p class="definition">definition: {{ singleDef.definition }}</p>
-            <p class="synonym">synonyms: </p>
-            <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
 
 
       <div class="mastfoot">
@@ -45,9 +43,5 @@
           <div class="logo"></div>
         </div>
       </div>
-
-    </div>
-
-  </div>
 
 </div>
