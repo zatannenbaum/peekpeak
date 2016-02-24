@@ -56,6 +56,10 @@ module.exports.routes = {
 
   'get /teacher': {
     view: 'teacher'
+  },
+
+  'get /create': {
+    view: 'create'
   }
 
   /***************************************************************************
