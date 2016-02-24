@@ -118,12 +118,19 @@ body {
 }
 
 
+.page-content {
+  width: 100%;
+  height: 75%;
+  margin-top: 9%;
+  position: absolute;
+}
+
 /*
  * Scroll bar
  */
 .section {
   width: 20%;
-  height: 80%;
+  height: 100%;
   padding-top: 2%;
   padding-left: 2%;
   float: left;
@@ -148,7 +155,7 @@ body {
 }
 
 .current {
-  height: 80%;
+  height: 100%;
   width: 80%;
   padding: 2%;
   float: left;
