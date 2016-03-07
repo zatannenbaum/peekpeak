@@ -71,12 +71,10 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
 
   $scope.showdef = function() {
     $scope.image = false;
-    console.log("here1");
   }
 
   $scope.showimg = function() {
     $scope.image = true;
-    console.log("here2");
   }
 
 
