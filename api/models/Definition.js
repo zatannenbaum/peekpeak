@@ -12,6 +12,10 @@ module.exports = {
       text: "string",
       required: "true"
     },
+    image: {
+      text: "string",
+      required: "true"
+    },
     synonyms: {
       collection: "synonym",
       via: "definition"

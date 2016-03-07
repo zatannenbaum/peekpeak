@@ -28,13 +28,37 @@
       <div class="currentword-header"><h2> {{ currentWord.word }} </h2></div>
 
       <div class="info">
-        <div class="info-inside">
-          <div class="info-container md-col-6" ng-repeat="singleDef in defs" ng-if="singleDef.word==currentWord.id">
-            <p class="definition">definition: {{ singleDef.definition }}</p>
-            <p class="synonym">synonyms: </p>
-            <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
+
+        <div class="previous">
+          <div class="prev-next"></div>
+          <div class="prev-next-btn">
+            <button type="button" class="btn btn-lg btn-default" aria-label="Chevron Left" ng-click="updateprev()">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </button>
           </div>
+          <div class="prev-next"></div>
         </div>
+
+        <div class="info-image" ng-show="image" ng-click="showdef()">
+          <img ng-src="{{ currentDefs[idef].image }}">
+        </div>
+
+        <div class="info-def" ng-hide="image" ng-click="showimg()">
+          <p class="definition">definition: {{ currentDefs[idef].definition }}</p>
+          <p class="synonym">synonyms: </p>
+          <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
+        </div>
+
+        <div class="next">
+          <div class="prev-next"></div>
+          <div class="prev-next-btn">
+            <button type="button" class="btn btn-lg btn-default" aria-label="Chevron Right" ng-click="updatenext()">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="prev-next"></div>
+        </div>
+
       </div>
     </div>
   </div>
