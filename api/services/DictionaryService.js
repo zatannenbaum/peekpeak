@@ -5,12 +5,6 @@ module.exports = {
       next(words);
     });
   },
-  selectWord: function(wordVal, next) {
-    Word.find({word: wordVal}).exec(function(err, word) {
-      if(err) throw err;
-      next(word);
-    });
-  },
   getDefinitions: function(next) {
     Definition.find().exec(function(err, definitions) {
       if(err) throw err;

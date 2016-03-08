@@ -11,10 +11,10 @@ module.exports = {
 			res.json(words);
 		});
 	},
-	selectWord: function(req, res) {
+	addWord: function(req, res) {
 		var wordVal = (req.body.word) ? req.body.word : undefined
-		DictionaryService.selectWord(wordVal, function(success) {
-			res.json(success);
-		});
+		CreateService.addWord(wordVal, function(success) {
+				res.json(success)
+		})
 	}
 };

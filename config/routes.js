@@ -59,7 +59,10 @@ module.exports.routes = {
   },
 
   'get /create': {
-    view: 'create'
+    view: 'create',
+    locals: {
+      layout: 'layouts/CreateLayout'
+    }
   }
 
   /***************************************************************************

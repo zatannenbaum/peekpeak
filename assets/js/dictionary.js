@@ -27,17 +27,15 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
   });
 
   $scope.selectWord = function(word) {
-    DictionaryService.selectWord(word).then(function(response) {
-      $scope.currentDefs = [];
-      $scope.idef = 0;
-      $scope.image = true;
-      $scope.currentWord = $scope.words[$scope.words.indexOf(word)];
-      for (var i = 0; i < $scope.defs.length; i++) {
-        if ($scope.defs[i].word === $scope.currentWord.id) {
-          $scope.currentDefs.push($scope.defs[i]);
-        }
+    $scope.currentDefs = [];
+    $scope.idef = 0;
+    $scope.image = true;
+    $scope.currentWord = $scope.words[$scope.words.indexOf(word)];
+    for (var i = 0; i < $scope.defs.length; i++) {
+      if ($scope.defs[i].word === $scope.currentWord.id) {
+        $scope.currentDefs.push($scope.defs[i]);
       }
-    });
+    }
   }
 
   DictionaryService.getDefinitions().then(function(response) {

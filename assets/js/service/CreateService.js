@@ -1,31 +1,32 @@
-dictionary.service('DictionaryService', function($http, $q) {
+create.service('CreateService', function($http, $q) {
   return {
-    'getWords': function() {
+    'addWord': function(word) {
       var defer = $q.defer();
-      $http.get('/word/getWords').success(function(resp) {
+      $http.post('/word/addWord', word).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
       });
       return defer.promise;
     },
-    'getDefinitions': function() {
+    'addDef': function(def) {
       var defer = $q.defer();
-      $http.get('definition/getDefinitions').success(function(resp) {
+      $http.post('/definition/addDef', def).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
       });
       return defer.promise;
     },
-    'getSynonyms': function() {
+    'addSyn': function(syn) {
       var defer = $q.defer();
-      $http.get('synonym/getSynonyms').success(function(resp) {
+      $http.post('/synonym/addSyn', syn).success(function(resp){
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
       });
       return defer.promise;
     }
+
   }
 });
