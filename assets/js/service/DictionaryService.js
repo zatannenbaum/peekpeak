@@ -11,7 +11,7 @@ dictionary.service('DictionaryService', function($http, $q) {
     },
     'getDefinitions': function() {
       var defer = $q.defer();
-      $http.get('definition/getDefinitions').success(function(resp) {
+      $http.get('/definition/getDefinitions').success(function(resp) {
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
@@ -20,7 +20,7 @@ dictionary.service('DictionaryService', function($http, $q) {
     },
     'getSynonyms': function() {
       var defer = $q.defer();
-      $http.get('synonym/getSynonyms').success(function(resp) {
+      $http.get('/synonym/getSynonyms').success(function(resp) {
         defer.resolve(resp);
       }).error( function(err) {
         defer.reject(err);
