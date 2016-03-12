@@ -40,7 +40,10 @@ module.exports.routes = {
   },
 
   'get /playnow': {
-    view: 'playnow'
+    view: 'playnow',
+    locals: {
+      layout: 'layouts/PlaynowLayout'
+    }
   },
 
   'get /dictionary': {
