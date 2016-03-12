@@ -1,7 +1,7 @@
 
 <div class="site-wrapper" ng-controller="dictionaryCtrl as dictionary">
 
-  <nav class="navbar masthead">
+  <!-- <nav class="navbar masthead">
     <a href="/" class="navbar-brand btn btn-lg btn-pp"></a>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/playnow" class="btn btn-default navbar-btn btn-play"></a></li>
@@ -9,14 +9,27 @@
         <li><a href="/story" class="btn btn-default navbar-btn btn-story"></a></li>
         <li><a href="/teacher" class="btn btn-default navbar-btn btn-teacher"></a></li>
       </ul>
-  </nav>
+  </nav> -->
+
+  <div class="masthead clearfix">
+    <div class="masthead-brand"><a href="/" class="btn btn-lg btn-pp"></a></div>
+    <nav>
+      <ul class="nav masthead-nav">
+        <li><a href="/playnow" class="btn btn-lg btn-play"></a></li>
+        <li class="active"><a href="/Dictionary" class="btn btn-lg btn-dict"></a></li>
+        <li><a href="/story" class="btn btn-lg btn-story"></a></li>
+        <li><a href="/teacher" class="btn btn-lg btn-teacher"></a></li>
+      </ul>
+    </nav>
+  </div>
 
   <div class="page-content">
 
     <div class="section">
+      <p>Select a word!</p>
       <nav class="words">
         <ul class="list-group word-list">
-          <button type="button" class="list-group-item word" ng-repeat="singleWord in words | orderBy:'word'" ng-click="selectWord(singleWord)">
+          <button type="button" class="list-group-item word" ng-repeat="singleWord in words | orderBy:'word'" ng-click="selectWord(singleWord)" ng-class="{'active' : singleWord === currentWord}">
               {{ singleWord.word }}
           </button>
         </ul>
@@ -36,17 +49,21 @@
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             </button>
           </div>
-          <div class="prev-next"></div>
+          <div class="prev-next">
+            <p>Previous</p>
+          </div>
         </div>
 
         <div class="info-image" ng-show="image" ng-click="showdef()">
           <img ng-src="{{ currentDefs[idef].image }}">
+          <p>Click to see definition and synonyms!</p>
         </div>
 
         <div class="info-def" ng-hide="image" ng-click="showimg()">
           <p class="definition">definition: {{ currentDefs[idef].definition }}</p>
           <p class="synonym">synonyms: </p>
-          <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==singleDef.id">{{ singleSyn.word }}</p>
+          <p ng-repeat="singleSyn in syns" ng-if="singleSyn.definition==currentDefs[idef].id">{{ singleSyn.word }}</p>
+          <p>Click to see image!</p>
         </div>
 
         <div class="next">
@@ -56,7 +73,9 @@
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             </button>
           </div>
-          <div class="prev-next"></div>
+          <div class="prev-next">
+            <p>Next</p>
+          </div>
         </div>
 
       </div>
