@@ -1,25 +1,14 @@
 module.exports = {
-  
-
-
-
-
-  // getWords: function(next) {
-  //   Word.find().exec(function(err, words) {
-  //     if(err) throw err;
-  //     next(words);
-  //   });
-  // },
-  // getDefinitions: function(next) {
-  //   Definition.find().exec(function(err, definitions) {
-  //     if(err) throw err;
-  //     next(definitions);
-  //   });
-  // },
-  // getSynonyms: function(next) {
-  //   Synonym.find().exec(function(err, synonyms) {
-  //     if(err) throw err;
-  //     next(synonyms);
-  //   });
-  // }
+  getUnits: function(next) {
+    Unit.find().exec(function(err, units) {
+      if(err) throw err;
+      next(units);
+    });
+  },
+  getQuestions: function(next) {
+    Question.find().exec(function(err, questions) {
+      if(err) throw err;
+      next(questions);
+    });
+  }
 };

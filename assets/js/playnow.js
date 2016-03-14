@@ -11,22 +11,32 @@ playnow.config(['$routeProvider',
     })
   }]);
 
-playnow.controller('dictionaryCtrl', ['$scope', '$rootScope', 'PlaynowService', function($scope, $rootScope, PlaynowService) {
+playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', function($scope, $rootScope, PlaynowService) {
+  $scope.units = [];
+  $scope.questions = [];
+  $scope.currentUnit = '';
+  $scope.currentQs = [];
 
 
+  PlaynowService.getUnits().then(function(response) {
+    $scope.units = response;
+  });
+
+  PlaynowService.getQuestions().then(function(response) {
+    $scope.questions = response;
+  });
+
+  $scope.selectUnit = function(unit) {
+    $scope.currentQs = [];
+    $scope.currentUnit = unit;
+    for (var i = 0; i < $scope.questions.length; i++) {
+      if ($scope.questions[i].unit === $scope.currentUnit.id) {
+        $scope.currentQs.push($scope.questions[i]);
+      }
+    }
+  }
 
 
-  // DictionaryService.getSynonyms().then(function(response) {
-  //   $scope.syns = response;
-  // });
-  //
-  // $scope.updateprev = function() {
-  //   $scope.idef = $scope.idef - 1;
-  //   if ($scope.idef < 0) {
-  //     $scope.idef = $scope.currentDefs.length - 1;
-  //   }
-  //   $scope.image = true;
-  // }
 
 
 

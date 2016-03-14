@@ -30,7 +30,7 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
     $scope.currentDefs = [];
     $scope.idef = 0;
     $scope.image = true;
-    $scope.currentWord = $scope.words[$scope.words.indexOf(word)];
+    $scope.currentWord = word;
     for (var i = 0; i < $scope.defs.length; i++) {
       if ($scope.defs[i].word === $scope.currentWord.id) {
         $scope.currentDefs.push($scope.defs[i]);
