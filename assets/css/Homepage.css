@@ -10,6 +10,25 @@ a:hover {
   text-decoration: none;
 }
 
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background-image: url("../backgrounds/homepage_background.png");
+  background-size: 100% 100%;
+  
+}
+
 .button-container {
   width: 50%;
   height: 220px;
@@ -28,9 +47,21 @@ a:hover {
 .btn-play,
 .btn-play:hover,
 .btn-play:focus {
-  background-image: url("../buttons/PlayNow.png");
+  background-image: url("/buttons/playnow_button.png");
   background-size: 100% 100%;
-  background-color: #fff;
+  background-color: rgb(255, 245, 104);
+  border: 2px solid black;
+  width: 200px;
+  height: 90px;
+}
+
+
+.btn-story,
+.btn-story:hover,
+.btn-story:focus {
+  background-image: url("/buttons/story_button.png");
+  background-size: 100% 100%;
+  background-color: rgb(0, 33, 87);
   border: 2px solid black;
   width: 200px;
   height: 90px;
@@ -39,21 +70,9 @@ a:hover {
 .btn-dict,
 .btn-dict:hover,
 .btn-dict:focus {
-  background-color: #fff;
-  background-image: url("../buttons/Dictionary.png");
+  background-image: url("/buttons/dict_button.png");
   background-size: 100% 100%;
-  border: 2px solid black;
-  width: 200px;
-  height: 90px;
-}
-
-.btn-story,
-.btn-story:hover,
-.btn-story:focus {
-
-  background-color: #fff;
-  background-image: url("../buttons/Story.png");
-  background-size: 100% 100%;
+  background-color: rgb(161, 134, 190);
   border: 2px solid black;
   width: 200px;
   height: 90px;
@@ -62,30 +81,10 @@ a:hover {
 .btn-teacher,
 .btn-teacher:hover,
 .btn-teacher:focus {
-  text-shadow: none; /* Prevent inheritence from `body` */
-  text-align: center;
-  background-color: #fff;
-  background-image: url("../buttons/Teacher.png");
+  background-image: url("/buttons/teach_button.png");
   background-size: 100% 100%;
+  background-color: rgb(165, 195, 208);
   border: 2px solid black;
   width: 200px;
   height: 90px;
-}
-
-
-/*
- * Base structure
- */
-
-html,
-body {
-  height: 100%;
-  overflow-y: hidden;
-}
-body {
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-  background-image: url("../backgrounds/PP_Homepage.PNG");
-  background-size: 100% 100%;
 }

@@ -43,174 +43,116 @@ body {
 
 
 /*
- * Header
+ * Navbar
  */
- .masthead {
-   background-color: white;  /*Change Navbar color*/
-   background-image: url("../backgrounds/NavBar.png");
+ .peekpeak-navbar {
+   height: 12%;
+   width: 100%;
+   background-color: black;
+ }
+
+ .pp-nav-btn {
+   height: 100%;
+   width: 14.28%;
+   float: left;
+   border-top: black 3px solid;
+   border-bottom: black 3px solid;
+   border-left: black 3px solid;
+   background-repeat: no-repeat;
+ }
+
+ .peekpeak-logo {
+   background-image: url("/buttons/pp_button.png");
    background-size: 100% 100%;
  }
 
-
- .masthead-brand {
-   margin-top: 10px;
-   margin-bottom: 10px;
- }
-
- .btn-pp,
- .btn-pp:hover,
- .btn-pp:focus,
- .btn-pp:active {
-   text-shadow: none;
-   background-image: url("../buttons/PeekPeak.png");
+ .home {
+   background-image: url("/buttons/home_button.png");
+   background-color: rgb(163, 212, 156);
    background-size: 100% 100%;
-   width: 200px;
-   height: 60px;
-
  }
 
- .masthead-nav > li {
-   display: inline-block;
+ .back {
+   background-image: url("/buttons/back_button.png");
+   background-color: rgb(247, 151, 121);
+   background-size: 100% 100%;
  }
- .masthead-nav > li + li {
-   margin-left: 5px;
+
+ .playnow {
+   background-image: url("/buttons/playnow_button.png");
+   background-color: rgb(255, 245, 104);
+   background-size: 100% 100%;
  }
- .masthead-nav > li > a {
-   padding-right: 0;
-   padding-left: 0;
-   top: 10px;
-   font-size: 16px;
-   font-weight: bold;
-   color: #fff; /* IE8 proofing */
-   color: rgba(255,255,255,.75);
-   border-bottom: 2px solid transparent;
+
+ .story {
+   background-image: url("/buttons/story_button.png");
+   background-color: rgb(0, 33, 87);
+   background-size: 100% 100%;
  }
- .masthead-nav > li > a:hover,
- .masthead-nav > li > a:focus {
-   background-color: transparent;
-   border-bottom-color: #a9a9a9;
-   border-bottom-color: rgba(255,255,255,.25);
+
+ .dictionary {
+   background-image: url("/buttons/dict_button.png");
+   background-color: rgb(161, 134, 190);
+   background-size: 100% 100%;
  }
- .masthead-nav > .active > a,
- .masthead-nav > .active > a:hover,
- .masthead-nav > .active > a:focus {
-   color: #fff;
-   border-bottom-color: #fff;
+
+ .teacher {
+   background-image: url("/buttons/teach_button.png");
+   background-color: rgb(165, 195, 208);
+   background-size: 100% 100%;
+   border-right: black 3px solid;
  }
+
+ .active-page {
+   border-bottom: white 5px dotted;
+ }
+
+
+ /*
+  * Body
+  */
+
+
+
+
+
+ /*
+  * Footer
+  */
+
+ .mastfoot {
+   color: #999; /* IE8 proofing */
+   color: rgba(255,255,255,.5);
+ }
+
+
+ /*
+  * Affix and center
+  */
 
  @media (min-width: 768px) {
-   .masthead-brand {
-     float: left;
+   /* Pull out the header and footer */
+   .mastfoot {
+     position: fixed;
+     bottom: 0;
    }
-   .masthead-nav {
-     float: right;
+
+   .logo {
+     width: 100px;
+     height: 20px;
+     background-image: url("../backgrounds/logo.png");
+     background-size: 100% 100%;
+     margin-left: 90%;
+   }
+
+   /* Handle the widths */
+   .mastfoot {
+     width: 100%; /* Must be percentage or pixels for horizontal alignment */
    }
  }
 
- /* Play Now! button */
- .btn-play,
- .btn-play:hover,
- .btn-play:focus {
-   text-shadow: none; /* Prevent inheritence from `body` */
-   text-align: center;
-   background-image: url("../buttons/PlayNow.png");
-   background-size: 100% 100%;
-   background-color: transparent;
-   width: 100px;
-   height: 50px;
+ @media (min-width: 992px) {
+   .mastfoot {
+     width: 100%;
+   }
  }
-
- .btn-dict,
- .btn-dict:hover,
- .btn-dict:focus {
-   text-shadow: none; /* Prevent inheritence from `body` */
-   text-align: center;
-   background-color: transparent;
-   background-image: url("../buttons/Dictionary.png");
-   background-size: 100% 100%;
-   width: 100px;
-   height: 50px;
- }
-
- .btn-story,
- .btn-story:hover,
- .btn-story:focus {
-   text-shadow: none; /* Prevent inheritence from `body` */
-   text-align: center;
-   background-color: transparent;
-   background-image: url("../buttons/Story.png");
-   background-size: 100% 100%;
-   width: 100px;
-   height: 50px;
- }
-
- .btn-teacher,
- .btn-teacher:hover,
- .btn-teacher:focus {
-   text-shadow: none; /* Prevent inheritence from `body` */
-   text-align: center;
-   background-color: transparent;
-   background-image: url("../buttons/Teacher.png");
-   background-size: 100% 100%;
-   width: 100px;
-   height: 50px;
- }
-
-
-
-
-
-
-
-/*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
-}
-
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
-
-  .logo {
-    width: 100px;
-    height: 20px;
-    background-image: url("../backgrounds/logo.png");
-    background-size: 100% 100%;
-    margin-left: 90%;
-  }
-
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
-}
-
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%;
-  }
-}
