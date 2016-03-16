@@ -54,11 +54,17 @@ module.exports.routes = {
   },
 
   'get /story': {
-    view: 'story'
+    view: 'story',
+    locals: {
+      layout: 'layouts/StoryLayout'
+    }
   },
 
   'get /teacher': {
-    view: 'teacher'
+    view: 'teacher',
+    locals: {
+      layout: 'layouts/TeacherLayout'
+    }
   },
 
   'get /create': {

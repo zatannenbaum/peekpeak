@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="dictionary" lang="en">
+<html ng-app="peekpeak" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +9,17 @@
     <meta name="author" content="">
     <link rel="icon" href="/backgrounds/Speaksoft_favicon.ico">
 
-    <title>Dictionary</title>
+    <title>Teacher Mode</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom styles for this template -->
-    <link href="/css/dictionary.css" rel="stylesheet">
-    <link href="/css/standard.css" rel="stylesheet">
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" href="/css/ie10-viewport-bug-workaround.css">
 
+    <!-- Custom styles for this template -->
+    <link href="/css/teacher.css" rel="stylesheet">
+    <link href="/css/standard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -35,28 +34,14 @@
 
   <body>
     <%-body%>
-    <div ng-view></div>
-
-    <!-- <script type="text/javascript" src="/jst.js"></script> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script src="js/ie10-viewport-bug-workaround.js"></script> -->
-
-
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="/js/dictionary.js"></script>
-    <script src="/js/service/DictionaryService.js"></script>
-
-
-
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

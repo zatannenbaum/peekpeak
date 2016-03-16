@@ -1,61 +1,78 @@
 <div class=site-wrapper ng-controller="createCtrl as create">
-  <div class="instructions">
+  <div class="peekpeak-navbar">
+    <a href="/"><div class="pp-nav-btn peekpeak-logo"></div></a>
+    <a href="/"><div class="pp-nav-btn home"></div></a>
+    <a href="/"><div class="pp-nav-btn back"></div></a>
+    <a href="/playnow"><div class="pp-nav-btn playnow"></div></a>
+    <a href="/story"><div class="pp-nav-btn story"></div></a>
+    <a href="/dictionary"><div class="pp-nav-btn dictionary"></div></a>
+    <a href="/teacher"><div class="pp-nav-btn teacher"></div></a>
+  </div>
+
+
+  <div class="page-content create-page">
+
+
+    <div class="instructions">
+      <h3>This is a private page used by the developers to create the data found within Peek Peak.</h3>
+    </div>
+
+    <div class="word">
+      <div class="third">
+        <h3>Word:</h3>
+      </div>
+
+      <div class="third">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter word here" ng-model="wordformData.word">
+        <br>
+        <button type="submit" class="btn btn-primary btn-sm" ng-click="addWord()">Add Word</button>
+      </div>
+
+      <div class="third">
+        <p>Current Word ID:</p>
+        <p> {{ currentWord.id }} </p>
+        <p>Copy this for creating definitions for the word: {{currentWord.word}}</p>
+      </div>
+    </div>
+
+    <div class="definition">
+      <div class="third">
+        <h3>Definition:</h3>
+      </div>
+      <div class="third">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter definition here" ng-model="defformData.def">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter image file path here (ie '/images/bill-bird.png')" ng-model="defformData.image">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter word ID from above here" ng-model="defformData.word">
+        <button type="submit" class="btn btn-primary btn-sm" ng-click="addDef()">Add Definition</button>
+      </div>
+
+      <div class="third">
+        <p>Current Definition ID:</p>
+        <p>{{currentDef.id}}</p>
+        <p>Copy this for creating synonyms for the definition: {{currentDef.definition}}</p>
+      </div>
+
+    </div>
+
+    <div class="synonym">
+      <div class="third">
+        <h3>Synonym:</h3>
+      </div>
+      <div class="third">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter synonym here" ng-model="synformData.word">
+        <input type="text" class="form-control input-sm text-center" placeholder="Enter definition ID from above here" ng-model="synformData.def">
+        <button type="submit" class="btn btn-primary btn-sm" ng-click="addSyn()">Add Synonym</button>
+      </div>
+
+      <div class="third"></div>
+    </div>
+
+    <div class="mastfoot">
+      <div class="inner">
+        <div class="logo"></div>
+      </div>
+    </div>
 
   </div>
 
-  <div class="word">
-    <div class="third">
-      <h3>Word:</h3>
-    </div>
-
-    <div class="third">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter word here" ng-model="wordformData.word">
-      <br>
-      <button type="submit" class="btn btn-primary btn-sm" ng-click="addWord()">Add Word</button>
-    </div>
-
-    <div class="third">
-      <p>Current Word ID:</p>
-      <p> {{ currentWord.id }} </p>
-      <p>Copy this for creating definitions for the word: {{currentWord.word}}</p>
-    </div>
-  </div>
-
-  <div class="definition">
-    <div class="third">
-      <h3>Definition:</h3>
-    </div>
-    <div class="third">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter definition here" ng-model="defformData.def">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter image file path here (ie '/images/bill-bird.png')" ng-model="defformData.image">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter word ID from above here" ng-model="defformData.word">
-      <button type="submit" class="btn btn-primary btn-sm" ng-click="addDef()">Add Definition</button>
-    </div>
-
-    <div class="third">
-      <p>Current Definition ID:</p>
-      <p>{{currentDef.id}}</p>
-      <p>Copy this for creating synonyms for the definition: {{currentDef.definition}}</p>
-    </div>
-
-  </div>
-
-  <div class="synonym">
-    <div class="third">
-      <h3>Synonym:</h3>
-    </div>
-    <div class="third">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter synonym here" ng-model="synformData.word">
-      <input type="text" class="form-control input-sm text-center" placeholder="Enter definition ID from above here" ng-model="synformData.def">
-      <button type="submit" class="btn btn-primary btn-sm" ng-click="addSyn()">Add Synonym</button>
-    </div>
-
-    <div class="third"></div>
-  </div>
-
-  <div class="mastfoot">
-    <div class="inner">
-      <div class="logo"></div>
-    </div>
-  </div>
 </div>
