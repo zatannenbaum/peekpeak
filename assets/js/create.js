@@ -12,11 +12,24 @@ create.config(['$routeProvider',
   }]);
 
 create.controller('createCtrl', ['$scope', '$rootScope', 'CreateService', function($scope, $rootScope, CreateService) {
+  $scope.unitformData = {};
+  $scope.currentUnit = '';
+  $scope.mcformData = {};
+  $scope.fitbformData = {};
+  $scope.matchformData = {};
+  $scope.pmformData = {};
   $scope.wordformData = {};
   $scope.currentWord = '';
   $scope.defformData = {};
   $scope.currentDef = '';
   $scope.synformData = {};
+
+  $scope.addUnit = function() {
+    CreateService.addUnit($scope.unitformData).then(function(response) {
+      $scope.unitformData = {};
+      $scope.currentUnit = response;
+    })
+  }
 
   $scope.addWord = function() {
     CreateService.addWord($scope.wordformData).then(function(response) {
@@ -38,7 +51,29 @@ create.controller('createCtrl', ['$scope', '$rootScope', 'CreateService', functi
     })
   }
 
+  $scope.addMC = function() {
+    CreateService.addMC($scope.mcformData).then(function() {
+      $scope.mcformData = {};
+    })
+  }
 
+  $scope.addFITB = function() {
+    CreateService.addFITB($scope.fitbformData).then(function() {
+      $scope.fitbformData = {};
+    })
+  }
+
+  $scope.addMatch = function() {
+    CreateService.addMatch($scope.matchformData).then(function() {
+      $scope.matchformData = {};
+    })
+  }
+
+  $scope.addPM = function() {
+    CreateService.addPM($scope.pmformData).then(function() {
+      $scope.pmformData = {};
+    })
+  }
 
 
 

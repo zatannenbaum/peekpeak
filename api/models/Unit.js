@@ -8,7 +8,8 @@
 module.exports = {
 
   attributes: {
-    unit: {
+    unit_name: "string",
+    unit_number: {
       type: "integer"
     },
     words: {

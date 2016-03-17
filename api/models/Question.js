@@ -11,11 +11,15 @@ module.exports = {
     unit: {
       model: "unit",
     },
+    
+    word: "string", //word being quizzed
+
     questiontype: {
       type: "string",
       enum: ['MC', 'FITB', 'M', 'PM']
       //MC=Multiple Choice, FITB=Fill In The Blank, M=Matching, PM=Picture Matching
     },
+
     difficulty: {
       type: "integer",
       enum: [1, 2, 3, 4, 5]

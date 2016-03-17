@@ -13,7 +13,8 @@ module.exports = {
 	},
 	addWord: function(req, res) {
 		var wordVal = (req.body.word) ? req.body.word : undefined
-		CreateService.addWord(wordVal, function(success) {
+		var unitVal = (req.body.unit) ? req.body.unit : undefined
+		CreateService.addWord(wordVal, unitVal, function(success) {
 				res.json(success)
 		})
 	}

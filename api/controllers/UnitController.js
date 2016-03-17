@@ -10,15 +10,14 @@ module.exports = {
 		PlaynowService.getUnits(function(units) {
 			res.json(units);
 		});
+	},
+	addUnit: function(req, res) {
+		var nameVal = (req.body.unitname) ? req.body.unitname : undefined
+		var numVal = (req.body.unitnum) ? req.body.unitnum : undefined
+		CreateService.addUnit(nameVal, numVal, function(success) {
+				res.json(success)
+		})
 	}
-	// addDef: function(req, res) {
-	// 	var defVal = (req.body.def) ? req.body.def : undefined
-	// 	var imgVal = (req.body.image) ? req.body.image : undefined
-	// 	var wordVal = (req.body.word) ? req.body.word : undefined
-	// 	CreateService.addDef(defVal, imgVal, wordVal, function(success) {
-	// 			res.json(success)
-	// 	})
-	// }
 
 
 };
