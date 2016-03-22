@@ -15,324 +15,357 @@
 
 
   <div class="page-content">
-    <div class="unit-select">
-      <span>Select unit to practice:</span>
-      <select ng-model="currentUnit" ng-options="u.unit_name for u in units" ng-change="selectUnit()"></select>
+    <div class="top">
+      <div class="select-unit">
+        <span class="select">Select unit to practice:</span>
+        <select class="unit" ng-model="currentUnit" ng-options="u.unit_name for u in units" ng-change="selectUnit()"></select>
+      </div>
     </div>
-    <div class="question" ng-hide="done">
-      <div class="innerQ MC" ng-show="currentQ.questiontype === 'MC'">
-        <span>{{ currentQ.question }}</span>
-        <form>
-          <label>
-            <input type="radio" name="MCAnswer" ng-model="answer.response" value="A">
-            {{ currentQ.a1 }}
-          </label><br/>
-          <label>
-            <input type="radio" name="MCAnswer" ng-model="answer.response" value="B">
-            {{ currentQ.b1 }}
-          </label><br/>
-          <label>
-            <input type="radio" name="MCAnswer" ng-model="answer.response" value="C">
-            {{ currentQ.c1 }}
-          </label><br/>
-          <label ng-show="currentQ.d1">
-            <input type="radio" name="MCAnswer" ng-model="answer.response" value="D">
-            {{ currentQ.d1 }}
-          </label><br/>
-          <label ng-show="currentQ.e1">
-            <input type="radio" name="MCAnswer" ng-model="answer.response" value="E">
-            {{ currentQ.e1 }}
-          </label><br/>
-          <input class="contrast" type="submit" name="submit" ng-click="checkMCFITB()">
-        </form>
+    <div class="content">
+      <div class="prev-next">
+        <div class="prev-next-div"></div>
+        <div class="prev-next-btn">
+          <button class="btn btn-lg btn-default" ng-click="prev()">Last</button>
+        </div>
+        <div class="prev-next-div"></div>
+      </div>
+      <div class="qpane" ng-class="answerstyle" ng-hide="done">
+        <div class="innerQ" ng-show="currentQ.questiontype === 'MC'">
+          <div class="question">
+            <span>{{ currentQ.question }}</span>
+            <form>
+              <label>
+                <input type="radio" name="MCAnswer" ng-model="answer.response" value="A">
+                {{ currentQ.a1 }}
+              </label><br/>
+              <label>
+                <input type="radio" name="MCAnswer" ng-model="answer.response" value="B">
+                {{ currentQ.b1 }}
+              </label><br/>
+              <label>
+                <input type="radio" name="MCAnswer" ng-model="answer.response" value="C">
+                {{ currentQ.c1 }}
+              </label><br/>
+              <label ng-show="currentQ.d1">
+                <input type="radio" name="MCAnswer" ng-model="answer.response" value="D">
+                {{ currentQ.d1 }}
+              </label><br/>
+              <label ng-show="currentQ.e1">
+                <input type="radio" name="MCAnswer" ng-model="answer.response" value="E">
+                {{ currentQ.e1 }}
+              </label><br/>
+            </form>
+          </div>
+
+          <div class="submit">
+            <input class="contrast" type="submit" name="submit" ng-click="checkMCFITB()">
+          </div>
+
+        </div>
+
+        <div class="innerQ" ng-show="currentQ.questiontype === 'FITB'">
+          <div class="question">
+            <span>{{ currentQ.question }}</span>
+            <form>
+              <label ng-hide="currentQ.a1">
+                Answer:
+                <input class="contrast" type="text" name="FITBinput" ng-model="answer.response" autocomplete="off">
+              </label></br>
+              <label ng-show="currentQ.a1">
+                <input type="radio" name="FITBAnswer" ng-model="answer.response" value="A">
+                {{ currentQ.a1 }}
+              </label><br/>
+              <label ng-show="currentQ.b1">
+                <input type="radio" name="FITBAnswer" ng-model="answer.response" value="B">
+                {{ currentQ.b1 }}
+              </label><br/>
+              <label ng-show="currentQ.c1">
+                <input type="radio" name="FITBAnswer" ng-model="answer.response" value="C">
+                {{ currentQ.c1 }}
+              </label><br/>
+              <label ng-show="currentQ.d1">
+                <input type="radio" name="FITBAnswer" ng-model="answer.response" value="D">
+                {{ currentQ.d1 }}
+              </label><br/>
+              <label ng-show="currentQ.e1">
+                <input type="radio" name="FITBAnswer" ng-model="answer.response" value="E">
+                {{ currentQ.e1 }}
+              </label><br/>
+            </form>
+          </div>
+
+          <div class="submit">
+            <input class="contrast" type="submit" name="submit" ng-click="checkMCFITB()">
+          </div>
+
+        </div>
+
+        <div class="innerQ" ng-show="currentQ.questiontype === 'M'">
+          <div class="question">
+            <div class="MatchQ">
+              <span>{{ currentQ.question }}</span>
+            </div>
+            <div class="matchLeft">
+              <label>
+                <select ng-model="matchanswer.a">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                1. {{ currentQ.a1 }}
+              </label><br/>
+              <label>
+                <select ng-model="matchanswer.b">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                2. {{ currentQ.b1 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_c">
+                <select ng-model="matchanswer.c">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                3. {{ currentQ.c1 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_d">
+                <select ng-model="matchanswer.d">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                4. {{ currentQ.d1 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_e">
+                <select ng-model="matchanswer.e">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                5. {{ currentQ.e1 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_f">
+                <select ng-model="matchanswer.f">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                6. {{ currentQ.f1 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_g">
+                <select ng-model="matchanswer.g">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                7. {{ currentQ.g1 }}
+              </label><br/>
+            </div>
+            <div class="matchRight">
+              <label>
+                A. {{ currentQ.a2 }}
+              </label></br>
+              <label>
+                B. {{ currentQ.b2 }}
+              </label></br>
+              <label ng-show="currentQ.answer_c">
+                C. {{ currentQ.c2 }}
+              </label></br>
+              <label ng-show="currentQ.answer_d">
+                D. {{ currentQ.d2 }}
+              </label></br>
+              <label ng-show="currentQ.answer_e">
+                E. {{ currentQ.e2 }}
+              </label></br>
+              <label ng-show="currentQ.answer_f">
+                F. {{ currentQ.f2 }}
+              </label></br>
+              <label ng-show="currentQ.answer_g">
+                G. {{ currentQ.g2 }}
+              </label></br>
+            </div>
+          </div>
+          <div class="submit">
+            <input class="contrast" type="submit" name="submit" ng-click="checkMatch()">
+          </div>
+        </div>
+
+        <div class="innerQ PM" ng-show="currentQ.questiontype === 'PM'">
+          <div class="question">
+            <div class="MatchQ">
+              <span>{{ currentQ.question }}</span>
+            </div>
+            <div class="matchLeft">
+              <label>
+                <select ng-model="matchanswer.a">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                1. {{ currentQ.a2 }}
+              </label><br/>
+              <label>
+                <select ng-model="matchanswer.b">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                2. {{ currentQ.b2 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_c">
+                <select ng-model="matchanswer.c">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                3. {{ currentQ.c2 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_d">
+                <select ng-model="matchanswer.d">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                4. {{ currentQ.d2 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_e">
+                <select ng-model="matchanswer.e">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                5. {{ currentQ.e2 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_f">
+                <select ng-model="matchanswer.f">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                6. {{ currentQ.f2 }}
+              </label><br/>
+              <label ng-show="currentQ.answer_g">
+                <select ng-model="matchanswer.g">
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D" ng-show="currentQ.answer_d">D</option>
+                  <option value="E" ng-show="currentQ.answer_e">E</option>
+                  <option value="F" ng-show="currentQ.answer_f">F</option>
+                  <option value="G" ng-show="currentQ.answer_g">G</option>
+                </select>
+                7. {{ currentQ.g2 }}
+              </label><br/>
+            </div>
+            <div class="matchRight">
+              <label align="left">
+                A.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.a1 }}">
+              </label></br>
+              <label align="left">
+                B.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.b1 }}">
+              </label></br>
+              <label align="left" ng-show="currentQ.answer_c">
+                C.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.c1 }}">
+              </label></br>
+              <label align="left" ng-show="currentQ.answer_d">
+                D.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.d1 }}">
+              </label></br>
+              <label align="left" ng-show="currentQ.answer_e">
+                E.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.e1 }}">
+              </label></br>
+              <label align="left" ng-show="currentQ.answer_f">
+                F.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.f1 }}">
+              </label></br>
+              <label align="left" ng-show="currentQ.answer_g">
+                G.
+                <img style="width: 40%; height: auto;" ng-src="{{ currentQ.g1 }}">
+              </label></br>
+            </div>
+          </div>
+          <div class="submit">
+            <input class="contrast" type="submit" name="submit" ng-click="checkMatch()">
+          </div>
+        </div>
+      </div>
+      <div class="qpane" ng-show="done">
+        <h2>No more questions!</h2>
       </div>
 
-      <div class="innerQ FITB" ng-show="currentQ.questiontype === 'FITB'">
-        <span>{{ currentQ.question }}</span>
-        <form>
-          <label ng-hide="currentQ.a1">
-            Answer:
-            <input class="contrast" type="text" name="FITBinput" ng-model="answer.response" autocomplete="off">
-          </label></br>
-          <label ng-show="currentQ.a1">
-            <input type="radio" name="FITBAnswer" ng-model="answer.response" value="A">
-            {{ currentQ.a1 }}
-          </label><br/>
-          <label ng-show="currentQ.b1">
-            <input type="radio" name="FITBAnswer" ng-model="answer.response" value="B">
-            {{ currentQ.b1 }}
-          </label><br/>
-          <label ng-show="currentQ.c1">
-            <input type="radio" name="FITBAnswer" ng-model="answer.response" value="C">
-            {{ currentQ.c1 }}
-          </label><br/>
-          <label ng-show="currentQ.d1">
-            <input type="radio" name="FITBAnswer" ng-model="answer.response" value="D">
-            {{ currentQ.d1 }}
-          </label><br/>
-          <label ng-show="currentQ.e1">
-            <input type="radio" name="FITBAnswer" ng-model="answer.response" value="E">
-            {{ currentQ.e1 }}
-          </label><br/>
-          <input class="contrast" type="submit" name="submit" ng-click="checkMCFITB()">
-        </form>
-      </div>
-
-      <div class="innerQ M" ng-show="currentQ.questiontype === 'M'">
-        <div class="MatchQ">
-          <span>{{ currentQ.question }}</span>
+      <div class="prev-next">
+        <div class="prev-next-div"></div>
+        <div class="prev-next-btn">
+          <button class="btn btn-lg btn-default" ng-click="next()">Next</button>
         </div>
-        <div class="matchLeft">
-          <label>
-            <select ng-model="matchanswer.a">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            1. {{ currentQ.a1 }}
-          </label><br/>
-          <label>
-            <select ng-model="matchanswer.b">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            2. {{ currentQ.b1 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_c">
-            <select ng-model="matchanswer.c">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            3. {{ currentQ.c1 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_d">
-            <select ng-model="matchanswer.d">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            4. {{ currentQ.d1 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_e">
-            <select ng-model="matchanswer.e">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            5. {{ currentQ.e1 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_f">
-            <select ng-model="matchanswer.f">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            6. {{ currentQ.f1 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_g">
-            <select ng-model="matchanswer.g">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            7. {{ currentQ.g1 }}
-          </label><br/>
-          <input class="contrast" type="submit" name="submit" ng-click="checkMatch()">
-        </div>
-        <div class="matchRight">
-          <label>
-            A. {{ currentQ.a2 }}
-          </label></br>
-          <label>
-            B. {{ currentQ.b2 }}
-          </label></br>
-          <label ng-show="currentQ.answer_c">
-            C. {{ currentQ.c2 }}
-          </label></br>
-          <label ng-show="currentQ.answer_d">
-            D. {{ currentQ.d2 }}
-          </label></br>
-          <label ng-show="currentQ.answer_e">
-            E. {{ currentQ.e2 }}
-          </label></br>
-          <label ng-show="currentQ.answer_f">
-            F. {{ currentQ.f2 }}
-          </label></br>
-          <label ng-show="currentQ.answer_g">
-            G. {{ currentQ.g2 }}
-          </label></br>
-        </div>
-
-      </div>
-
-      <div class="innerQ PM" ng-show="currentQ.questiontype === 'PM'">
-        <div class="MatchQ">
-          <span>{{ currentQ.question }}</span>
-        </div>
-        <div class="matchLeft">
-          <label>
-            <select ng-model="matchanswer.a">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            1. {{ currentQ.a2 }}
-          </label><br/>
-          <label>
-            <select ng-model="matchanswer.b">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            2. {{ currentQ.b2 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_c">
-            <select ng-model="matchanswer.c">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            3. {{ currentQ.c2 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_d">
-            <select ng-model="matchanswer.d">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            4. {{ currentQ.d2 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_e">
-            <select ng-model="matchanswer.e">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            5. {{ currentQ.e2 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_f">
-            <select ng-model="matchanswer.f">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            6. {{ currentQ.f2 }}
-          </label><br/>
-          <label ng-show="currentQ.answer_g">
-            <select ng-model="matchanswer.g">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="D" ng-show="currentQ.answer_d">D</option>
-              <option value="E" ng-show="currentQ.answer_e">E</option>
-              <option value="F" ng-show="currentQ.answer_f">F</option>
-              <option value="G" ng-show="currentQ.answer_g">G</option>
-            </select>
-            7. {{ currentQ.g2 }}
-          </label><br/>
-          <input class="contrast" type="submit" name="submit" ng-click="checkMatch()">
-        </div>
-        <div class="matchRight">
-          <label>
-            A.
-            <img ng-src="{{ currentQ.a1 }}">
-          </label></br>
-          <label>
-            B.
-            <img ng-src="{{ currentQ.b1 }}">
-          </label></br>
-          <label ng-show="currentQ.answer_c">
-            C.
-            <img ng-src="{{ currentQ.c1 }}">
-          </label></br>
-          <label ng-show="currentQ.answer_d">
-            D.
-            <img ng-src="{{ currentQ.d1 }}">
-          </label></br>
-          <label ng-show="currentQ.answer_e">
-            E.
-            <img ng-src="{{ currentQ.e1 }}">
-          </label></br>
-          <label ng-show="currentQ.answer_f">
-            F.
-            <img ng-src="{{ currentQ.f1 }}">
-          </label></br>
-          <label ng-show="currentQ.answer_g">
-            G.
-            <img ng-src="{{ currentQ.g1 }}">
-          </label></br>
-        </div>
-
+        <div class="prev-next-div"></div>
       </div>
 
 
       <div class="answer" ng-show="answered">
         <span ng-show="correct">Correct Answer</span>
         <span ng-hide="correct">Incorrect Answer</span>
-        <button class="btn btn-primary btn-sm" ng-click="next()">Next</button>
+
       </div>
     </div>
-
-    <div class="question" ng-show="done">
-      <h2>No more questions!</h2>
-    </div>
-
-
-
 
 
 

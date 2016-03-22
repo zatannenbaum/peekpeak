@@ -22,6 +22,7 @@ playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', fun
   $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
   $scope.answered = false;
   $scope.correct = false;
+  $scope.answerstyle = 'unanswered';
   $scope.done = false;
 
 
@@ -59,31 +60,57 @@ playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', fun
     }
 
     $scope.currentQ = $scope.currentQs[$scope.i];
-
-
   }
 
   $scope.checkMCFITB = function() {
     $scope.answered = true;
     $scope.correct = ($scope.currentQ.answer_a === $scope.answer.response);
+    if ($scope.correct) {
+      $scope.answerstyle = 'correct';
+    } else {
+      $scope.answerstyle = 'incorrect';
+    }
   }
 
   $scope.checkMatch = function() {
     $scope.answered = true;
     $scope.correct = ($scope.currentQ.answer_a === $scope.matchanswer.a) && ($scope.currentQ.answer_b === $scope.matchanswer.b) && ($scope.currentQ.answer_c === $scope.matchanswer.c) && ($scope.currentQ.answer_d === $scope.matchanswer.d) && ($scope.currentQ.answer_e === $scope.matchanswer.e) && ($scope.currentQ.answer_f === $scope.matchanswer.f) && ($scope.currentQ.answer_g === $scope.matchanswer.g);
+    if ($scope.correct) {
+      $scope.answerstyle = 'correct';
+    } else {
+      $scope.answerstyle = 'incorrect';
+    }
   }
 
   $scope.next = function() {
     $scope.answer.response = '';
     $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
     $scope.answered = false;
-    
+    $scope.answerstyle = 'unanswered';
+
     $scope.i++;
-    if ($scope.i === $scope.currentQs.length) {
+    if ($scope.i >= $scope.currentQs.length) {
       $scope.done = true;
+      $scope.i = $scope.currentQs.length;
     } else {
       $scope.currentQ = $scope.currentQs[$scope.i];
     }
+  }
+
+  $scope.prev = function() {
+    $scope.answer.response = '';
+    $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
+    $scope.done = false;
+    $scope.answered = false;
+    $scope.answerstyle = 'unanswered';
+
+    $scope.i--;
+
+    if ($scope.i < 0) {
+      $scope.i = 0;
+    }
+    $scope.currentQ = $scope.currentQs[$scope.i];
+
   }
 
 
