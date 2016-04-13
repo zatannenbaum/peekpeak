@@ -16,6 +16,14 @@ playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', fun
   $scope.questions = [];
   $scope.currentUnit = '';
   $scope.currentQs = [];
+  $scope.currentQ = '';
+  $scope.currentanswers = [];
+  $scope.answer = { response: '' };
+  $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
+  $scope.answered = false;
+  $scope.correct = false;
+  $scope.answerstyle = 'unanswered';
+  $scope.done = false;
 
 
   PlaynowService.getUnits().then(function(response) {
@@ -26,17 +34,84 @@ playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', fun
     $scope.questions = response;
   });
 
-  $scope.selectUnit = function(unit) {
+  $scope.selectUnit = function() {
     $scope.currentQs = [];
-    $scope.currentUnit = unit;
+    $scope.i = 0;
+    $scope.answer.response = '';
+    $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
+    $scope.answered = false;
+    $scope.done = false;
+
     for (var i = 0; i < $scope.questions.length; i++) {
       if ($scope.questions[i].unit === $scope.currentUnit.id) {
         $scope.currentQs.push($scope.questions[i]);
       }
     }
+
+    /*
+     * Randomize array element order in-place.
+     * Using Durstenfeld shuffle algorithm.
+     */
+    for (var i = $scope.currentQs.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = $scope.currentQs[i];
+      $scope.currentQs[i] = $scope.currentQs[j];
+      $scope.currentQs[j] = temp;
+    }
+
+    $scope.currentQ = $scope.currentQs[$scope.i];
   }
 
+  $scope.checkMCFITB = function() {
+    $scope.answered = true;
+    $scope.correct = ($scope.currentQ.answer_a === $scope.answer.response);
+    if ($scope.correct) {
+      $scope.answerstyle = 'correct';
+    } else {
+      $scope.answerstyle = 'incorrect';
+    }
+  }
 
+  $scope.checkMatch = function() {
+    $scope.answered = true;
+    $scope.correct = ($scope.currentQ.answer_a === $scope.matchanswer.a) && ($scope.currentQ.answer_b === $scope.matchanswer.b) && ($scope.currentQ.answer_c === $scope.matchanswer.c) && ($scope.currentQ.answer_d === $scope.matchanswer.d) && ($scope.currentQ.answer_e === $scope.matchanswer.e) && ($scope.currentQ.answer_f === $scope.matchanswer.f) && ($scope.currentQ.answer_g === $scope.matchanswer.g);
+    if ($scope.correct) {
+      $scope.answerstyle = 'correct';
+    } else {
+      $scope.answerstyle = 'incorrect';
+    }
+  }
+
+  $scope.next = function() {
+    $scope.answer.response = '';
+    $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
+    $scope.answered = false;
+    $scope.answerstyle = 'unanswered';
+
+    $scope.i++;
+    if ($scope.i >= $scope.currentQs.length) {
+      $scope.done = true;
+      $scope.i = $scope.currentQs.length;
+    } else {
+      $scope.currentQ = $scope.currentQs[$scope.i];
+    }
+  }
+
+  $scope.prev = function() {
+    $scope.answer.response = '';
+    $scope.matchanswer = { a: null, b: null, c: null, d: null, e: null, f: null, g: null};
+    $scope.done = false;
+    $scope.answered = false;
+    $scope.answerstyle = 'unanswered';
+
+    $scope.i--;
+
+    if ($scope.i < 0) {
+      $scope.i = 0;
+    }
+    $scope.currentQ = $scope.currentQs[$scope.i];
+
+  }
 
 
 
