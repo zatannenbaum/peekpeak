@@ -48,14 +48,16 @@ body {
    height: 12%;
    width: 100%;
    background-color: rgb(109, 208, 247);
+   border-left: transparent 2px solid;
+   border-right: transparent 2px solid;
  }
 
  .pp-nav-btn {
    margin-top: 3px;
    height: 90%;
-   width: 14%;
+   width: 13.95%;
    float: left;
-   margin-left: 3px;
+   margin-left: .3%;
    /*border-top: transparent 3px solid;
    border-bottom: transparent 3px solid;
    border-left: transparent 2px solid;
@@ -66,7 +68,7 @@ body {
  .peekpeak-logo {
    background-image: url("/buttons/pp_button.png");
    background-size: 100% 100%;
-   border-left: transparent 3px solid;
+
  }
 
  .home {
@@ -103,7 +105,7 @@ body {
    background-image: url("/buttons/teach_button.png");
    background-color: rgb(165, 195, 208);
    background-size: 100% 100%;
-   border-right: transparent 3px solid;
+
  }
 
  .active-page {
