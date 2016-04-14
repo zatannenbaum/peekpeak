@@ -23,9 +23,9 @@ module.exports = {
 
     SignupService.createUser(first, last, email, un, password, function(user) {
       req.session.username = user.username;
+      req.session.usertype = user.usertype;
       req.session.authenticated = true;
-      res.status(200);
-      return res.redirect('/');
+      res.send();
     })
   },
   login: function(req, res) {
@@ -42,14 +42,19 @@ module.exports = {
     LoginService.loginAttempt(un, encrypt, function(user) {
       if (user !== undefined) {
         req.session.username = user.username;
+        req.session.usertype = user.usertype;
         req.session.authenticated = true;
         res.send();
       } else {
         res.json({username: null});
       }
     })
-
-
+  },
+  logout: function(req, res) {
+    req.session.username = null;
+    req.session.usertype = null;
+    req.session.authenticated = false;
+    res.send();
   }
 
 };

@@ -47,3 +47,9 @@
 .warning {
   color: red;
 }
+
+.loginpage:hover,
+.loginpage:active,
+.loginpage:link {
+  text-decoration: underline;
+}

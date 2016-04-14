@@ -11,7 +11,7 @@ dictionary.config(['$routeProvider',
     })
   }]);
 
-dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryService', function($scope, $rootScope, DictionaryService) {
+dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', '$window', 'DictionaryService', function($scope, $rootScope, $window, DictionaryService) {
   $scope.words = [];
   $scope.currentWord = '';
   $scope.defs = [];
@@ -73,6 +73,12 @@ dictionary.controller('dictionaryCtrl', ['$scope', '$rootScope', 'DictionaryServ
 
   $scope.showimg = function() {
     $scope.image = true;
+  }
+
+  $scope.userLogout = function () {
+    DictionaryService.userLogout().then(function(response) {
+      $window.location.href = '/login';
+    })
   }
 
 

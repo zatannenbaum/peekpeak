@@ -21,17 +21,20 @@
               <h6>Password must be at least 7 characters long</h6>
               <input type="password" class="form-control input-sm text-center" placeholder="Password (required)" ng-model="signupform.password">
               <input type="password" class="form-control input-sm text-center" placeholder="Reconfirm Password (required)" ng-model="signupform.password2">
+              <br>
+              <button type="submit" class="btn btn-primary btn-sm" ng-click="createUser()">Sign up!</button>
               <h6 class="warning" ng-show="incomplete">Please make sure everything is filled out</h6>
               <h6 class="warning" ng-show="passwordissue">Please make password is at least 7 characters and they match</h6>
               <h6 class="warning" ng-show="emailexists">Account with this email already exists</h6>
               <h6 class="warning" ng-show="userexists">Account with this username already exists</h6>
-              <button type="submit" class="btn btn-primary btn-sm" ng-click="createUser()">Sign up!</button>
             </form>
           </div>
-          <div class="fourth"></div>
+          <div class="fourth">
+          </div>
         </div>
       </div>
     </div>
+    <span>Already have an account? Log in <a class="loginpage" href='/login'>here</a></span>
 
 
 

@@ -1,10 +1,4 @@
 module.exports = {
-  // emailSearch: function(email, next) {
-  //   User.find({email: email}).exec(function(err, user) {
-  //     if(err) throw err;
-  //     next(user);
-  //   });
-  // },
   userSearch: function(un, next) {
     User.find({username: un}).exec(function(err,user) {
       if(err) throw err;
@@ -27,7 +21,7 @@ module.exports = {
                 + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
 
-    User.create({firstname: first, lastname: last, email: email, username: un, password: encrypt, lastlogin: datetime, units: [1], currentunit: 1, strugglingwords: []}).exec(function(err, user) {
+    User.create({firstname: first, lastname: last, email: email, username: un, password: encrypt, usertype: "student", lastlogin: datetime, units: [1], currentunit: 1, strugglingwords: []}).exec(function(err, user) {
       if(err) throw err;
       next(user);
     });
