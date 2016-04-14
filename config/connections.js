@@ -28,9 +28,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  // localDiskDb: {
-  //   adapter: 'sails-disk'
-  // },
+  localDiskDb: {
+    adapter: 'sails-disk'
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -56,14 +56,14 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  someMongodbServer: {
-    adapter: 'sails-mongo',
-    host: 'ds015478.mlab.com',
-    port: 15478,
-    user: 'speaksoft',
-    password: 'speaksoft',
-    database: 'dictionary'
-  },
+  // someMongodbServer: {
+  //   adapter: 'sails-mongo',
+  //   host: 'ds015478.mlab.com',
+  //   port: 15478,
+  //   user: 'speaksoft',
+  //   password: 'speaksoft',
+  //   database: 'dictionary'
+  // },
 
   /***************************************************************************
   *                                                                          *

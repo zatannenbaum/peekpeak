@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
 
   /***************************************************************************
   *                                                                          *
@@ -34,7 +34,44 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
-	// RabbitController: {
+  DefinitionController: {
+    '*': true,
+    getDefinitions: true
+  },
+
+  WordController: {
+    '*': true,
+    getWords: true
+  },
+
+  UnitController: {
+    '*': true,
+    getUnits: true
+  },
+
+  SynonymController: {
+    '*': true,
+    getSynonyms: true
+  },
+
+  QuestionController: {
+    '*': true,
+    getQuestions: true
+  },
+
+  PeekpeakController: {
+    '*': true,
+    login: ['sessionUnauth'],
+    signup: ['sessionUnauth'],
+    home: ['sessionAuth'],
+    playnow: ['sessionAuth'],
+    dictionary: ['sessionAuth'],
+    story: ['sessionAuth'],
+    teacher: ['sessionAuth'],
+    create: ['sessionAuth']
+  }
+
+  // RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
 		// (`false` prevents all access, which ensures that nothing bad happens to our rabbits)

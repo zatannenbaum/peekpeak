@@ -32,47 +32,21 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage',
-    locals: {
-      layout: 'layouts/HomepageLayout'
-    }
-  },
+  '/': 'PeekpeakController.home',
 
-  'get /playnow': {
-    view: 'playnow',
-    locals: {
-      layout: 'layouts/PlaynowLayout'
-    }
-  },
+  'get /playnow': 'PeekpeakController.playnow',
 
-  'get /dictionary': {
-    view: 'dictionary',
-    locals: {
-      layout: 'layouts/DictionaryLayout'
-    }
-  },
+  'get /dictionary': 'PeekpeakController.dictionary',
 
-  'get /story': {
-    view: 'story',
-    locals: {
-      layout: 'layouts/StoryLayout'
-    }
-  },
+  'get /story': 'PeekpeakController.story',
 
-  'get /teacher': {
-    view: 'teacher',
-    locals: {
-      layout: 'layouts/TeacherLayout'
-    }
-  },
+  'get /teacher': 'PeekpeakController.teacher',
 
-  'get /create': {
-    view: 'create',
-    locals: {
-      layout: 'layouts/CreateLayout'
-    }
-  }
+  'get /create': 'PeekpeakController.create',
+
+  'get /login': 'PeekpeakController.login',
+
+  'get /signup': 'PeekpeakController.signup'
 
   /***************************************************************************
   *                                                                          *
