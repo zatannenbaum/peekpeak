@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
 
   /***************************************************************************
   *                                                                          *
@@ -34,18 +34,40 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
-	// RabbitController: {
+  DefinitionController: {
+    '*': true,
+    getDefinitions: true
+  },
 
-		// Apply the `false` policy as the default for all of RabbitController's actions
-		// (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-		// '*': false,
+  WordController: {
+    '*': true,
+    getWords: true
+  },
 
-		// For the action `nurture`, apply the 'isRabbitMother' policy
-		// (this overrides `false` above)
-		// nurture	: 'isRabbitMother',
+  UnitController: {
+    '*': true,
+    getUnits: true
+  },
 
-		// Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-		// before letting any users feed our rabbits
-		// feed : ['isNiceToAnimals', 'hasRabbitFood']
-	// }
+  SynonymController: {
+    '*': true,
+    getSynonyms: true
+  },
+
+  QuestionController: {
+    '*': true,
+    getQuestions: true
+  },
+
+  PeekpeakController: {
+    '*': true,
+    login: ['sessionUnauth'],
+    signup: ['sessionUnauth'],
+    home: ['sessionAuth'],
+    playnow: ['sessionAuth'],
+    dictionary: ['sessionAuth'],
+    story: ['sessionAuth'],
+    teacher: ['sessionAuth', 'teacherAccess'],
+    create: ['sessionAuth', 'adminAccess']
+  }
 };

@@ -1,0 +1,52 @@
+
+<div class="site-wrapper" ng-controller="signupCtrl as signup">
+
+  <div class="page-content">
+
+
+    <div class="vert-fourth"></div>
+    <div class="vert-half">
+      <div class="third"></div>
+      <div class="third">
+        <div class="login">
+          <div class="fourth"></div>
+          <div class="half">
+            <h3>Sign up!</h3>
+            <br>
+            <form>
+              <input type="text" class="form-control input-sm text-center" placeholder="First Name (required)" ng-model="signupform.first">
+              <input type="text" class="form-control input-sm text-center" placeholder="Last Name (required)" ng-model="signupform.last">
+              <input type="text" class="form-control input-sm text-center" placeholder="E-mail (required)" ng-model="signupform.email">
+              <input type="text" class="form-control input-sm text-center" placeholder="Username (required)" ng-model="signupform.username">
+              <h6>Password must be at least 7 characters long</h6>
+              <input type="password" class="form-control input-sm text-center" placeholder="Password (required)" ng-model="signupform.password">
+              <input type="password" class="form-control input-sm text-center" placeholder="Reconfirm Password (required)" ng-model="signupform.password2">
+              <br>
+              <button type="submit" class="btn btn-primary btn-sm" ng-click="createUser()">Sign up!</button>
+              <h6 class="warning" ng-show="incomplete">Please make sure everything is filled out</h6>
+              <h6 class="warning" ng-show="passwordissue">Please make password is at least 7 characters and they match</h6>
+              <h6 class="warning" ng-show="emailexists">Account with this email already exists</h6>
+              <h6 class="warning" ng-show="userexists">Account with this username already exists</h6>
+            </form>
+          </div>
+          <div class="fourth">
+          </div>
+        </div>
+      </div>
+    </div>
+    <span>Already have an account? Log in <a class="loginpage" href='/login'>here</a></span>
+
+
+
+
+    <div class="mastfoot">
+      <div class="inner">
+        <div class="logo"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

@@ -11,7 +11,7 @@ create.config(['$routeProvider',
     })
   }]);
 
-create.controller('createCtrl', ['$scope', '$rootScope', 'CreateService', function($scope, $rootScope, CreateService) {
+create.controller('createCtrl', ['$scope', '$rootScope', '$window', 'CreateService', function($scope, $rootScope, $window, CreateService) {
   $scope.unitformData = {};
   $scope.currentUnit = '';
   $scope.mcformData = {};
@@ -72,6 +72,12 @@ create.controller('createCtrl', ['$scope', '$rootScope', 'CreateService', functi
   $scope.addPM = function() {
     CreateService.addPM($scope.pmformData).then(function() {
       $scope.pmformData = {};
+    })
+  }
+
+  $scope.userLogout = function () {
+    CreateService.userLogout().then(function(response) {
+      $window.location.href = '/login';
     })
   }
 

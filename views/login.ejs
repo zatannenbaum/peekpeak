@@ -1,0 +1,51 @@
+
+<div class="site-wrapper" ng-controller="loginCtrl as login">
+
+  <div class="page-content">
+
+
+    <div class="vert-fourth"></div>
+    <div class="vert-half">
+      <div class="third"></div>
+      <div class="third">
+        <div class="login">
+          <div class="vert-fourth">
+            <h3>Login!</h3>
+          </div>
+          <div class="vert-half">
+            <div class="fourth"></div>
+            <div class="half">
+              <br>
+              <input type="text" class="form-control input-sm text-center" placeholder="Username" ng-model="loginform.username">
+              <br>
+              <input type="password" class="form-control input-sm text-center" placeholder="Password" ng-model="loginform.password">
+              <br>
+              <span ng-show="loginfailed" class="incorrect">Username or password incorrect</span>
+            </div>
+            <div class="fourth"></div>
+          </div>
+          <div class="vert-fourth">
+
+            <span>Don't have an account? Sign up <a class="signup" href="/signup">here</a></span>
+            <br>
+            <button type="submit" class="btn btn-primary btn-sm" ng-click="userLogin()">Login!</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="mastfoot">
+      <div class="inner">
+        <div class="logo"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

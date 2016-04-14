@@ -11,7 +11,7 @@ playnow.config(['$routeProvider',
     })
   }]);
 
-playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', function($scope, $rootScope, PlaynowService) {
+playnow.controller('playnowCtrl', ['$scope', '$rootScope', '$window', 'PlaynowService', function($scope, $rootScope, $window, PlaynowService) {
   $scope.units = [];
   $scope.questions = [];
   $scope.currentUnit = '';
@@ -111,6 +111,12 @@ playnow.controller('playnowCtrl', ['$scope', '$rootScope', 'PlaynowService', fun
     }
     $scope.currentQ = $scope.currentQs[$scope.i];
 
+  }
+
+  $scope.userLogout = function () {
+    PlaynowService.userLogout().then(function(response) {
+      $window.location.href = '/login';
+    })
   }
 
 
