@@ -28,11 +28,6 @@ module.exports = {
     defaultsTo: "student"
   },
 
-  loggedin: {
-    type: "boolean",
-    defaultsTo: "true"
-  },
-
   lastlogin: "datetime",
 
   units: "array",

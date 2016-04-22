@@ -4,5 +4,11 @@ module.exports = {
       if (err) throw err;
       next(user);
     })
+  },
+  loggedIn: function(user, datetime, next) {
+    User.update({username: user.username}, {lastlogin: datetime}).exec(function(err, u) {
+      if (err) throw err;
+      next(u);
+    })
   }
 };

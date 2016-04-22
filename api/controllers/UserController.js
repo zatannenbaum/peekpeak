@@ -41,6 +41,14 @@ module.exports = {
 
     LoginService.loginAttempt(un, encrypt, function(user) {
       if (user !== undefined) {
+        var currentdate = new Date();
+        var datetime = (currentdate.getMonth()+1) + "/"
+                    + currentdate.getDate() + "/"
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+        LoginService.loggedIn(user, datetime, function(u) {});
         req.session.username = user.username;
         req.session.usertype = user.usertype;
         req.session.authenticated = true;
