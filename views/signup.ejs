@@ -18,9 +18,13 @@
               <input type="text" class="form-control input-sm text-center" placeholder="Last Name (required)" ng-model="signupform.last">
               <input type="text" class="form-control input-sm text-center" placeholder="E-mail (required)" ng-model="signupform.email">
               <input type="text" class="form-control input-sm text-center" placeholder="Username (required)" ng-model="signupform.username">
+              <h6>Select School</h6>
+              <select ng-model="currentSchool" ng-options="s.school_name for s in schools" ng-change="selectSchool()"></select>
+              <h6>Select Teacher</h6>
+              <select ng-model="teacher" ng-options="t.lastname for t in schoolTeachers"></select>
               <h6>Password must be at least 7 characters long</h6>
               <input type="password" class="form-control input-sm text-center" placeholder="Password (required)" ng-model="signupform.password">
-              <input type="password" class="form-control input-sm text-center" placeholder="Reconfirm Password (required)" ng-model="signupform.password2">
+              <input type="password" class="form-control input-sm text-center" placeholder="Reconfirm Password" ng-model="signupform.password2">
               <br>
               <button type="submit" class="btn btn-primary btn-sm" ng-click="createUser()">Sign up!</button>
               <h6 class="warning" ng-show="incomplete">Please make sure everything is filled out</h6>

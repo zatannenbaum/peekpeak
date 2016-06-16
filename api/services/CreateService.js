@@ -5,6 +5,12 @@ module.exports = {
       next(unit);
     })
   },
+  addSchool: function(schoolVal, cityVal, stateVal, next) {
+    School.create({school_name: schoolVal, city: cityVal, state: stateVal}).exec(function(err, school) {
+      if(err) throw err;
+      next(school);
+    })
+  },
   addWord: function(wordVal, unitVal, next) {
     Word.create({word: wordVal, unit: unitVal}).exec(function(err, word) {
       if(err) throw err;

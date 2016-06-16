@@ -26,6 +26,25 @@ signup.service('SignupService', function($http, $q) {
         defer.reject(err);
       });
       return defer.promise;
+    },
+    'getSchools': function() {
+      var defer = $q.defer();
+      $http.post('/school/getSchools').success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
+    'getUsers': function() {
+      var defer = $q.defer();
+      $http.post('/user/getUsers').success(function(resp){
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
     }
+
   }
 });

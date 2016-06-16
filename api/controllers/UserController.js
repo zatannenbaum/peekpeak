@@ -14,14 +14,21 @@ module.exports = {
       res.json(user);
     });
   },
+  getUsers: function(req, res) {
+    SignupService.getUsers(function(users) {
+      res.json(users);
+    });
+  },
   createUser: function(req, res) {
     var first = (req.body.first) ? req.body.first : undefined
     var last = (req.body.last) ? req.body.last : undefined
     var email = (req.body.email) ? req.body.email : undefined
     var un = (req.body.username) ? req.body.username : undefined
+    var school_id = (req.body.school_id) ? req.body.school_id : undefined
+    var teacher_id = (req.body.teacher_id) ? req.body.teacher_id : undefined
     var password = (req.body.password) ? req.body.password : undefined
 
-    SignupService.createUser(first, last, email, un, password, function(user) {
+    SignupService.createUser(first, last, email, un, school_id, teacher_id, password, function(user) {
       req.session.username = user.username;
       req.session.usertype = user.usertype;
       req.session.authenticated = true;
@@ -46,8 +53,9 @@ module.exports = {
                     + currentdate.getDate() + "/"
                     + currentdate.getFullYear() + " "
                     + currentdate.getHours() + ":"
-                    + currentdate.getMinutes() + ":"
-                    + currentdate.getSeconds();
+                    + currentdate.getMinutes() + ":";
+        if (currentdate.getSeconds() < 10) datetime += ("0" + currentdate.getSeconds());
+        else datetime += currentdate.getSeconds();
         LoginService.loggedIn(user, datetime, function(u) {});
         req.session.username = user.username;
         req.session.usertype = user.usertype;

@@ -10,5 +10,11 @@ module.exports = {
       if (err) throw err;
       next(u);
     })
+  },
+  getSchools: function(next) {
+    School.find().exec(function(err, schools) {
+      if(err) throw err;
+      next(schools);
+    })
   }
 };

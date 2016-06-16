@@ -6,34 +6,41 @@
  */
 
 module.exports = {
-  firstname: "string",
+  attributes: {
+    school: {
+      model: "school"
+    },
 
-  lastname: "string",
+    teacher_id: "string",
 
-  email: {
-    type: "string",
-    unique: true
-  },
+    firstname: "string",
 
-  username: {
-    type: "string",
-    unique: true
-  },
+    lastname: "string",
 
-  password: "string",
+    email: {
+      type: "string",
+      unique: true
+    },
 
-  usertype: {
-    type: "string",
-    enum: ["student", "teacher", "admin"],
-    defaultsTo: "student"
-  },
+    username: {
+      type: "string",
+      unique: true
+    },
 
-  lastlogin: "datetime",
+    password: "string",
 
-  units: "array",
+    usertype: {
+      type: "string",
+      enum: ["student", "teacher", "admin"],
+      defaultsTo: "student"
+    },
 
-  currentunit: "integer",
+    lastlogin: "datetime",
 
-  strugglingwords: "array"
+    units: "array",
 
+    currentunit: "integer",
+
+    strugglingwords: "array"
+  }
 };

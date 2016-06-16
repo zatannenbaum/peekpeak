@@ -9,6 +9,15 @@ create.service('CreateService', function($http, $q) {
       });
       return defer.promise;
     },
+    'addSchool': function(school) {
+      var defer = $q.defer();
+      $http.post('/school/addSchool', school).success(function(resp) {
+        defer.resolve(resp);
+      }).error( function(err) {
+        defer.reject(err);
+      });
+      return defer.promise;
+    },
     'addWord': function(word) {
       var defer = $q.defer();
       $http.post('/word/addWord', word).success(function(resp){

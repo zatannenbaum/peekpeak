@@ -5,7 +5,7 @@ module.exports = {
       next(user);
     });
   },
-  createUser: function(first, last, email, un, password, next) {
+  createUser: function(first, last, email, un, school_id, teacher_id, password, next) {
     var encrypt = 0;
     for (i = 0; i < password.length; i++) {
         char = password.charCodeAt(i);
@@ -21,9 +21,15 @@ module.exports = {
                 + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
 
-    User.create({firstname: first, lastname: last, email: email, username: un, password: encrypt, usertype: "student", lastlogin: datetime, units: [1], currentunit: 1, strugglingwords: []}).exec(function(err, user) {
+    User.create({school: school_id, teacher_id: teacher_id, firstname: first, lastname: last, email: email, username: un, password: encrypt, usertype: "student", lastlogin: datetime, units: [1], currentunit: 1, strugglingwords: []}).exec(function(err, user) {
       if(err) throw err;
       next(user);
+    });
+  },
+  getUsers: function(next) {
+    User.find().exec(function(err, users) {
+      if(err) throw err;
+      next(users);
     });
   }
 };

@@ -13,6 +13,7 @@ create.config(['$routeProvider',
 
 create.controller('createCtrl', ['$scope', '$rootScope', '$window', 'CreateService', function($scope, $rootScope, $window, CreateService) {
   $scope.unitformData = {};
+  $scope.schoolformData = {};
   $scope.currentUnit = '';
   $scope.mcformData = {};
   $scope.fitbformData = {};
@@ -28,6 +29,12 @@ create.controller('createCtrl', ['$scope', '$rootScope', '$window', 'CreateServi
     CreateService.addUnit($scope.unitformData).then(function(response) {
       $scope.unitformData = {};
       $scope.currentUnit = response;
+    })
+  }
+
+  $scope.addSchool = function() {
+    CreateService.addSchool($scope.schoolformData).then(function(response) {
+      $scope.schoolformData = {};
     })
   }
 
